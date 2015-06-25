@@ -49,6 +49,8 @@
 
 #define WHITE 1
 #define BLACK 0
+#define ON    1
+#define OFF   0
 
 class Piccolino_OLED_SRAM : public Print  {
 public:
@@ -82,7 +84,10 @@ public:
   void updateRow(int rowID);
   void updateRow(int startID, int endID);
   byte buff[128]; // video buffer
-
+  void displayOFF();
+  void displayON();
+  void dim(bool how);
+  
 protected:
   uint8_t _i2caddr;
     int16_t cursor_x, cursor_y, textcolor, textbgcolor;
