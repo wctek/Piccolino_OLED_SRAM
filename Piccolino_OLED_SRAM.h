@@ -49,8 +49,7 @@
 
 #define WHITE 1
 #define BLACK 0
-#define ON    1
-#define OFF   0
+#define GRAY  2
 
 class Piccolino_OLED_SRAM : public Print  {
 public:
@@ -76,6 +75,7 @@ public:
   void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size);
   void setCursor(int16_t x, int16_t y);
   void fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+  void drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
   void setTextSize(uint8_t s);
   void setTextColor(uint16_t c);
   void setTextColor(uint16_t c, uint16_t bg);
@@ -84,10 +84,7 @@ public:
   void updateRow(int rowID);
   void updateRow(int startID, int endID);
   byte buff[128]; // video buffer
-  void displayOFF();
-  void displayON();
-  void dim(bool how);
-  
+
 protected:
   uint8_t _i2caddr;
     int16_t cursor_x, cursor_y, textcolor, textbgcolor;
